@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from .app.routes.beneficio_routes import router as BeneficioRouter
+from .routes.beneficio_routes import router as BeneficioRouter
 
 app = FastAPI()
 
