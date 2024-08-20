@@ -1,8 +1,13 @@
 from motor.motor_asyncio import AsyncIOMotorClient
 from .models import Beneficio
+import os
+from dotenv import load_dotenv
 
-# Cadena de conexión a MongoDB
-MONGO_DETAILS = "mongodb+srv://Tester:Test1234@testing.mzysw.mongodb.net/?retryWrites=true&w=majority&appName=Testing"
+# Cargar variables de entorno
+load_dotenv()
+
+# Cadena de conexión a MongoDB desde variables de entorno
+MONGO_DETAILS = os.getenv("MONGO_DETAILS")
 
 client = AsyncIOMotorClient(MONGO_DETAILS)
 database = client.taller_fastapi
