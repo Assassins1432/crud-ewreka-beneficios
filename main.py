@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-from .routes.beneficio_routes import router as BeneficioRouter
+from routes import benefits
 
 app = FastAPI()
 
-app.include_router(BeneficioRouter, prefix="/beneficios", tags=["beneficios"])
+app.include_router(benefits.router)
 
 @app.get("/")
 async def read_root():

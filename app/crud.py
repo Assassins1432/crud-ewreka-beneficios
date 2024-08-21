@@ -1,11 +1,11 @@
 from bson import ObjectId
-from .database import get_beneficio_collection
-from .models import Beneficio
+from app import database
+from app import models
 
-beneficios_collection = get_beneficio_collection()
+beneficios_collection = database.get_beneficio_collection()
 
 # Crear un nuevo beneficio sustentable
-async def crear_beneficio(beneficio: Beneficio):
+async def crear_beneficio(beneficio: models.Beneficio):
     beneficio = await beneficios_collection.insert_one(beneficio.dict())
     nuevo_beneficio = await beneficios_collection.find_one({"_id": beneficio.inserted_id})
     return nuevo_beneficio

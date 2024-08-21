@@ -1,5 +1,4 @@
 from motor.motor_asyncio import AsyncIOMotorClient
-from .models import Beneficio
 import os
 from dotenv import load_dotenv
 
